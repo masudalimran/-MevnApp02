@@ -1,19 +1,19 @@
 const state = {
     categoryList: [
-        { id: 1, name: "Phone asdf" },
-        { id: 2, name: "Laptop asdf" },
-        { id: 3, name: "Camera asdf" },
-        { id: 4, name: "Jacket asdf" },
-        { id: 5, name: "Watch asdf" },
-        { id: 6, name: "T-Shirt asdf" },
-        { id: 7, name: "Flower Vase asdf" },
-        { id: 8, name: "Cookeries asdf" },
-        { id: 9, name: "Shoe asdf" },
+        { id: 1, name: "Phone" },
+        { id: 2, name: "Laptop" },
+        { id: 3, name: "Camera" },
+        { id: 4, name: "Jacket" },
+        { id: 5, name: "Watch" },
+        { id: 6, name: "T-Shirt" },
+        { id: 7, name: "Flower Vase" },
+        { id: 8, name: "Cookeries" },
+        { id: 9, name: "Shoe" },
     ]
 };
 
 const getters = {
-    allCategories: (state) => state.categoryList
+    Categories: (state) => state.categoryList
 };
 
 const actions = {};

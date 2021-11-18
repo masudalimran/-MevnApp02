@@ -61,7 +61,7 @@
                   <!-- Category -->
 
                   <!-- Price -->
-                  <div class="text-subtitle-1 text-center pt-2">
+                  <div class="text-subtitle-1 text-center pt-2 red--text">
                     Price: ${{ item.price }}
                   </div>
                   <!-- Price -->
@@ -148,7 +148,7 @@ export default {
       allcategories: [],
       filteredCategories: [],
       items: [],
-      // categories: [],
+      categories: [],
       // Category FIlter
       selectedCategory: [],
     };
@@ -157,7 +157,7 @@ export default {
     numberOfPages() {
       return Math.ceil(this.items.length / this.itemsPerPage);
     },
-    ...mapGetters(["allProducts"]),
+    ...mapGetters(["allProducts", "Categories"]),
   },
   methods: {
     // Pagination
@@ -215,11 +215,21 @@ export default {
     },
 
     // Get Items
-    ...mapActions(['getProducts'])
+    ...mapActions(["getProducts"]),
   },
   mounted() {
-    this.getProducts()
+    this.getProducts();
     this.allcategories = this.items = this.allProducts;
+
+    // Fetch category from category ID
+    this.categories = this.Categories;
+    for (var i = 0; i < this.categories.length; i++) {
+      for (var j = 0; j < this.allProducts.length; j++) {
+        if (this.allProducts[j].categoryId == this.categories[i].id) {
+          this.allProducts[j].category = this.categories[i].name;
+        }
+      }
+    }
   },
 };
 </script>

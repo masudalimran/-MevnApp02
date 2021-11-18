@@ -25,7 +25,7 @@ export default {
       categoriesList: [],
     };
   },
-  computed: mapGetters(['allCategories']),
+  computed: mapGetters(['Categories']),
   methods: {
     category_check(cat_id) {
       this.$emit("checkCategory", cat_id);
@@ -35,7 +35,7 @@ export default {
     },
   },
   created(){
-    this.categoriesList = this.allCategories
+    this.categoriesList = this.Categories
   }
 };
 </script>
