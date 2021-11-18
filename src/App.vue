@@ -1,27 +1,36 @@
 <template>
-  <div id="app">
-    <h5> App Component</h5>
-    <router-view/>
-  </div>
+  <v-app>
+    <v-app-bar app color="info" dark>
+      <router-link :to="{path:'/'}" class="">
+        <v-img src="./assets/logo.jpg" max-height="60" max-width="100"/>
+      </router-link>
+      <!-- <v-toolbar-title>App Component</v-toolbar-title> -->
+    </v-app-bar>
+    <v-main>
+      <router-view />
+    </v-main>
+  </v-app>
 </template>
 
 <script>
-
+// import { mapGetters, mapActions } from "vuex";
 export default {
-  name: 'App',
-  components: {
-
-  }
-}
+  name: "App",
+  computed: {
+    // ...mapGetters(["allProducts"]),
+  },
+  created() {
+    // console.log("App Vue Getters", this.allProducts);
+    // this.getProducts();
+  },
+  methods: {
+    // ...mapActions(["getProducts"]),
+  },
+};
 </script>
 
-<style>
-#app {
-  font-family: cursive, Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: left;
-  color: #2c3e50;
-  margin-top: 10px;
-}
+<style lang="sass" scoped>
+.v-toolbar__title
+  font-family: cursive
+  text-transform: uppercase
 </style>
