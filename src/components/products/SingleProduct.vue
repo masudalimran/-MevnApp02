@@ -42,7 +42,7 @@
 
       <!-- Price -->
       <div class="text-subtitle-1 text-center pt-2 red--text">
-        Price: ${{ resultItems.price }}
+        Price: {{ bdCurrency(resultItems.price) }}
       </div>
       <!-- Price -->
 
@@ -79,6 +79,9 @@
 
 <script>
 import { mapActions } from "vuex";
+
+import bdCurrency from '../../mixins/bdCurrency'
+
 export default {
   name: "SingleProduct",
   data() {
@@ -121,6 +124,7 @@ export default {
   created() {
     this.getProductByIdData();
   },
+  mixins: [bdCurrency]
 };
 </script>
 

@@ -4,6 +4,7 @@ import Vue from 'vue'
 import products from './modules/products'
 import categories from './modules/categories'
 import navbar from './modules/navbar'
+import cart from './modules/cart'
 
 // Load Vuex
 Vue.use(Vuex)
@@ -14,5 +15,6 @@ export default new Vuex.Store({
         products,
         categories,
         navbar,
+        cart
     }
 })

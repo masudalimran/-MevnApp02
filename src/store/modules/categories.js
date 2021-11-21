@@ -13,7 +13,7 @@ const state = {
 };
 
 const getters = {
-    Categories: (state) => state.categoryList
+    categoryAssigned: (state) => state.categoryList
 };
 
 const actions = {};

@@ -7,7 +7,7 @@ const getters = {
 };
 const actions = {
     async getProducts({commit}){
-        const newProductsData = [
+      const newProductsData = [
             {
                 id: "1",
                 name: "IPhone 11 Pro",

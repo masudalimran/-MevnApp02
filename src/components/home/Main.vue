@@ -62,7 +62,7 @@
 
                   <!-- Price -->
                   <div class="text-subtitle-1 text-center pt-2 red--text">
-                    Price: ${{ item.price }}
+                    Price: {{ bdCurrency(item.price) }}
                   </div>
                   <!-- Price -->
 
@@ -136,6 +136,9 @@
 <script>
 import Categories from "./Categories.vue";
 import { mapGetters, mapActions } from "vuex";
+
+import bdCurrency from '../../mixins/bdCurrency'
+
 export default {
   name: "Main",
   components: {
@@ -157,7 +160,7 @@ export default {
     numberOfPages() {
       return Math.ceil(this.items.length / this.itemsPerPage);
     },
-    ...mapGetters(["allProducts", "Categories"]),
+    ...mapGetters(["allProducts", "categoryAssigned"]),
   },
   methods: {
     // Pagination
@@ -210,6 +213,16 @@ export default {
       for (var i = 0; i < this.items.length; i++) {
         if (this.items[i].id === id) {
           this.items[i].inCart = true;
+          var addedToCart = [this.items[i]]
+          if (!localStorage.cartItem) {
+            localStorage.cartItem = JSON.stringify(addedToCart);
+          } else {
+            var oldCart = (JSON.parse(localStorage.getItem("cartItem"))) || []
+            addedToCart = this.items[i]
+            oldCart.push(addedToCart);
+            localStorage.cartItem = JSON.stringify(oldCart)
+            // console.log(oldCart);
+          }
         }
       }
     },
@@ -217,12 +230,12 @@ export default {
     // Get Items
     ...mapActions(["getProducts"]),
   },
-  mounted() {
+  created() {
     this.getProducts();
     this.allcategories = this.items = this.allProducts;
 
     // Fetch category from category ID
-    this.categories = this.Categories;
+    this.categories = this.categoryAssigned;
     for (var i = 0; i < this.categories.length; i++) {
       for (var j = 0; j < this.allProducts.length; j++) {
         if (this.allProducts[j].categoryId == this.categories[i].id) {
@@ -231,6 +244,7 @@ export default {
       }
     }
   },
+  mixins: [bdCurrency]
 };
 </script>
   
