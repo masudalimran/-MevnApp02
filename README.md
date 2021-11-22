@@ -4,6 +4,14 @@
 * Vuetify 
 * Intl language for currency
 * Material Fonts
+> Dependency Used
+* axios
+* chart.js
+* core-js
+* vue
+* vuechartkick
+* vue-router
+* vuex
 >Issued Found
 ## Solved
 Pagination solved by uplo0king vuetify documentation
