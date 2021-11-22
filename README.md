@@ -1,3 +1,9 @@
+>Technology Used
+* Vue.js
+* ~~Botstrap~~
+* Vuetify 
+* Intl language for currency
+* Material Fonts
 >Issued Found
 ## Solved
 Pagination solved by uplo0king vuetify documentation
